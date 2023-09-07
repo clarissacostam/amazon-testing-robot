@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.2 on linux)" generated="20200626 16:40:22.076" rpa="false">
+<suite id="s1" name="01 buscaProdutoAmazon" source="/home/clarissamartins/Documentos/TESTING/MENU/testCase/01_buscaProdutoAmazon.robot">
+<kw name="Abrir navegador" library="amazonBuscaProduto" type="setup">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20200626 16:40:22.219" endtime="20200626 16:40:22.219"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200626 16:40:22.220" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200626 16:40:22.219" endtime="20200626 16:40:23.683"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20200626 16:40:23.683" endtime="20200626 16:40:23.685"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1680</arg>
+<arg>900</arg>
+</arguments>
+<status status="PASS" starttime="20200626 16:40:23.685" endtime="20200626 16:40:23.791"></status>
+</kw>
+<status status="PASS" starttime="20200626 16:40:22.218" endtime="20200626 16:40:23.791"></status>
+</kw>
+<test id="s1-t1" name="CARREGA SITE AMAZON">
+<kw name="DADO QUE Acesso amazon" library="amazonBuscaProduto">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200626 16:40:25.793" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200626 16:40:23.792" endtime="20200626 16:40:25.793"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${urlAmazon}</arg>
+</arguments>
+<msg timestamp="20200626 16:40:25.794" level="INFO">Opening url 'https://www.amazon.com.br/'</msg>
+<status status="PASS" starttime="20200626 16:40:25.793" endtime="20200626 16:40:27.722"></status>
+</kw>
+<status status="PASS" starttime="20200626 16:40:23.792" endtime="20200626 16:40:27.723"></status>
+</kw>
+<kw name="QUANDO busco o @{produto1}" library="amazonBuscaProduto">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200626 16:40:29.724" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200626 16:40:27.723" endtime="20200626 16:40:29.724"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//*[@id="twotabsearchtextbox"]</arg>
+</arguments>
+<status status="PASS" starttime="20200626 16:40:29.725" endtime="20200626 16:40:29.768"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="twotabsearchtextbox"]</arg>
+<arg>@{produto1}</arg>
+</arguments>
+<msg timestamp="20200626 16:40:29.769" level="INFO">Typing text 'mulheres que correm com lobos' into text field '//*[@id="twotabsearchtextbox"]'.</msg>
+<status status="PASS" starttime="20200626 16:40:29.768" endtime="20200626 16:40:30.074"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200626 16:40:32.075" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200626 16:40:30.074" endtime="20200626 16:40:32.075"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>//*[@id="twotabsearchtextbox"]</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200626 16:40:32.076" level="INFO">Sending key(s) ('ENTER',) to //*[@id="twotabsearchtextbox"] element.</msg>
+<msg timestamp="20200626 16:40:32.433" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200626 16:40:32.433" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20200626 16:40:32.075" endtime="20200626 16:40:33.731"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>//*[@id="search"]/div[1]/div[2]/div/span[3]/div[2]/div[1]/div/span/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a/span</arg>
+<arg>Mulheres que correm com os lobos</arg>
+</arguments>
+<msg timestamp="20200626 16:40:33.731" level="INFO">Verifying element '//*[@id="search"]/div[1]/div[2]/div/span[3]/div[2]/div[1]/div/span/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a/span' contains exact text 'Mulheres que correm com os lobos'.</msg>
+<status status="PASS" starttime="20200626 16:40:33.731" endtime="20200626 16:40:33.773"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200626 16:40:33.985" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200626 16:40:33.773" endtime="20200626 16:40:33.985"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>document.querySelector("#search &gt; div.s-desktop-width-max.s-desktop-content.sg-row &gt; div.sg-col-20-of-24.sg-col-28-of-32.sg-col-16-of-20.sg-col.sg-col-32-of-36.sg-col-8-of-12.sg-col-12-of-16.sg-col-24-of-28 &gt; div &gt; span:nth-child(4) &gt; div.s-main-slot.s-result-list.s-search-results.sg-row &gt; div:nth-child(1) &gt; div &gt; span &gt; div &gt; div &gt; div:nth-child(2) &gt; div.sg-col-4-of-12.sg-col-8-of-16.sg-col-16-of-24.sg-col-12-of-20.sg-col-24-of-32.sg-col.sg-col-28-of-36.sg-col-20-of-28 &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div:nth-child(1) &gt; h2 &gt; a").click()</arg>
+</arguments>
+<msg timestamp="20200626 16:40:33.986" level="INFO">Executing JavaScript:
+document.querySelector("#search &gt; div.s-desktop-width-max.s-desktop-content.sg-row &gt; div.sg-col-20-of-24.sg-col-28-of-32.sg-col-16-of-20.sg-col.sg-col-32-of-36.sg-col-8-of-12.sg-col-12-of-16.sg-col-24-of-28 &gt; div &gt; span:nth-child(4) &gt; div.s-main-slot.s-result-list.s-search-results.sg-row &gt; div:nth-child(1) &gt; div &gt; span &gt; div &gt; div &gt; div:nth-child(2) &gt; div.sg-col-4-of-12.sg-col-8-of-16.sg-col-16-of-24.sg-col-12-of-20.sg-col-24-of-32.sg-col.sg-col-28-of-36.sg-col-20-of-28 &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div:nth-child(1) &gt; h2 &gt; a").click()
+Without any arguments.</msg>
+<status status="PASS" starttime="20200626 16:40:33.985" endtime="20200626 16:40:36.493"></status>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<arguments>
+<arg>//*[@id="dp-container"]</arg>
+</arguments>
+<msg timestamp="20200626 16:40:36.755" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-3.png"&gt;&lt;img src="selenium-element-screenshot-3.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200626 16:40:36.493" endtime="20200626 16:40:36.755"></status>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<arguments>
+<arg>//*[@id="bookDesc_iframe"]</arg>
+</arguments>
+<msg timestamp="20200626 16:40:36.756" level="INFO">Selecting frame '//*[@id="bookDesc_iframe"]'.</msg>
+<status status="PASS" starttime="20200626 16:40:36.755" endtime="20200626 16:40:36.835"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//*[@id="iframeContent"]</arg>
+</arguments>
+<status status="PASS" starttime="20200626 16:40:36.835" endtime="20200626 16:40:36.864"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="iframeContent"]</arg>
+</arguments>
+<assign>
+<var>${returnprod1}</var>
+</assign>
+<msg timestamp="20200626 16:40:36.887" level="INFO">${returnprod1} = Os lobos foram pintados com um pincel negro nos contos de fada e até hoje assustam meninas indefesas. Mas nem sempre eles foram vistos como criaturas terríveis e violentas. Na Grécia antiga e em Roma,...</msg>
+<status status="PASS" starttime="20200626 16:40:36.865" endtime="20200626 16:40:36.887"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${returnprod1}</arg>
+</arguments>
+<msg timestamp="20200626 16:40:36.888" level="INFO">${returnprod1} = Os lobos foram pintados com um pincel negro nos contos de fada e até hoje assustam meninas indefesas. Mas nem sempre eles foram vistos como criaturas terríveis e violentas. Na Grécia antiga e em Roma,...</msg>
+<status status="PASS" starttime="20200626 16:40:36.887" endtime="20200626 16:40:36.888"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${returnprod1}</arg>
+</arguments>
+<msg timestamp="20200626 16:40:36.888" level="INFO">Os lobos foram pintados com um pincel negro nos contos de fada e até hoje assustam meninas indefesas. Mas nem sempre eles foram vistos como criaturas terríveis e violentas. Na Grécia antiga e em Roma, o animal era o consorte de Artemis, a caçadora, e carinhosamente amamentava os heróis. A analista junguiana Clarissa Pinkola Estés acredita que na nossa sociedade as mulheres vêm sendo tratadas de uma forma semelhante. Ao investigar o esmagamento da natureza instintiva feminina, Clarissa descobriu a chave da sensação de impotência da mulher moderna. Seu livro, Mulheres que correm com os lobos, ficou durante um ano na lista de mais vendidos nos Estados Unidos. Abordando 19 mitos, lendas e contos de fada, como a história do patinho feio e do Barba-Azul, Estés mostra como a natureza instintiva da mulher foi sendo domesticada ao longo dos tempos, num processo que punia todas aquelas que se rebelavam. Segundo a analista, a exemplo das florestas virgens e dos animais silvestres, os instintos foram devastados e os ciclos naturais femininos transformados à força em ritmos artificiais para agradar aos outros. Mas sua energia vital, segundo ela, pode ser restaurada por escavações psíquico-arqueológicas' nas ruínas do mundo subterrâneo. Até o ponto em que, emergindo das grossas camadas de condicionamento cultural, apareça a corajosa loba que vive em cada mulher. Clássico dos estudos sobre o sagrado feminino e o feminismo, o livro é o primeiro de uma série de longsellers da Rocco a ganhar edição com novo projeto gráfico e capa dura. '</msg>
+<status status="PASS" starttime="20200626 16:40:36.888" endtime="20200626 16:40:36.888"></status>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20200626 16:40:36.889" endtime="20200626 16:40:36.891"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200626 16:40:38.892" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200626 16:40:36.891" endtime="20200626 16:40:38.892"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="add-to-cart-button"]</arg>
+</arguments>
+<status status="PASS" starttime="20200626 16:40:38.893" endtime="20200626 16:40:38.931"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="add-to-cart-button"]</arg>
+</arguments>
+<msg timestamp="20200626 16:40:38.932" level="INFO">Clicking button '//*[@id="add-to-cart-button"]'.</msg>
+<status status="PASS" starttime="20200626 16:40:38.932" endtime="20200626 16:40:40.511"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200626 16:40:40.785" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200626 16:40:40.512" endtime="20200626 16:40:40.785"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200626 16:40:42.786" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200626 16:40:40.785" endtime="20200626 16:40:42.786"></status>
+</kw>
+<status status="PASS" starttime="20200626 16:40:27.723" endtime="20200626 16:40:42.786"></status>
+</kw>
+<kw name="E valido o carrinho" library="amazonBuscaProduto">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//*[@id="huc-v2-order-row-inner"]</arg>
+</arguments>
+<status status="PASS" starttime="20200626 16:40:42.787" endtime="20200626 16:40:42.825"></status>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<arguments>
+<arg>//*[@id="huc-v2-order-row-inner"]</arg>
+</arguments>
+<msg timestamp="20200626 16:40:42.929" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-4.png"&gt;&lt;img src="selenium-element-screenshot-4.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200626 16:40:42.825" endtime="20200626 16:40:42.929"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200626 16:40:45.930" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20200626 16:40:42.929" endtime="20200626 16:40:45.930"></status>
+</kw>
+<status status="PASS" starttime="20200626 16:40:42.787" endtime="20200626 16:40:45.930"></status>
+</kw>
+<doc>test zup clarissa</doc>
+<status status="PASS" starttime="20200626 16:40:23.791" endtime="20200626 16:40:45.931" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200626 16:40:22.077" endtime="20200626 16:40:45.932"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="01 buscaProdutoAmazon">01 buscaProdutoAmazon</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200626 16:40:22.216" level="ERROR">Error in file '/home/clarissamartins/Documentos/TESTING/MENU/resource/amazonBuscaProduto.robot' on line 6: Resource file '../resource/commonContrato.robot' does not exist.</msg>
+<msg timestamp="20200626 16:40:22.216" level="ERROR">Error in file '/home/clarissamartins/Documentos/TESTING/MENU/resource/amazonBuscaProduto.robot' on line 7: Resource file 'cadastroContratoSinapi.robot' does not exist.</msg>
+<msg timestamp="20200626 16:40:22.217" level="ERROR">Error in file '/home/clarissamartins/Documentos/TESTING/MENU/resource/amazonBuscaProduto.robot' on line 8: Resource file '../resource/requisitosContratos.robot' does not exist.</msg>
+<msg timestamp="20200626 16:40:22.217" level="ERROR">Error in file '/home/clarissamartins/Documentos/TESTING/MENU/resource/amazonBuscaProduto.robot' on line 9: Resource file '../resource/mapping.robot' does not exist.</msg>
+</errors>
+</robot>
